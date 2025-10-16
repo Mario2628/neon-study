@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crear cuenta — NeonStudy</title>
+  <link rel="stylesheet" href="resources/css/estilos.css">
+</head>
+<body class="auth">
+  <header class="topbar">
+    <div class="wrap bar">
+      <a class="brand" href="index.html">NeonStudy</a>
+      <nav class="menu"><a href="index.html" class="btn ghost small">← Volver al inicio</a></nav>
+    </div>
+  </header>
+
+  <main class="wrap auth-card">
+    <h1>Crear cuenta</h1>
+    <p class="muted">Es gratis. Te tomará menos de 30 segundos.</p>
+
+    <form id="form-register" novalidate>
+      <label>Nombre completo
+        <input type="text" name="name" required minlength="3" placeholder="Tu nombre">
+      </label>
+
+      <label>Correo electrónico
+        <input type="email" name="email" id="email" required placeholder="tu@correo.com">
+      </label>
+
+      <label>Contraseña
+        <input type="password" name="password" id="password" required minlength="8" placeholder="Mínimo 8 caracteres">
+        <meter id="strength" min="0" low="2" high="3" optimum="4" max="4" value="0"></meter>
+        <small class="muted">Usa mayúsculas, número y símbolo para máxima seguridad.</small>
+      </label>
+
+      <label>Confirmar contraseña
+        <input type="password" name="confirm" id="confirm" required minlength="8" placeholder="Repite tu contraseña">
+      </label>
+
+      <label class="check">
+        <input type="checkbox" id="terms" required>
+        Acepto la <a href="#">política de privacidad</a> y los <a href="#">términos</a>.
+      </label>
+
+      <button type="submit" class="btn primary full" id="btn-register">
+        <span class="spinner" aria-hidden="true"></span> Crear cuenta
+      </button>
+      <p class="center muted">¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+    </form>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </main>
+
+  <script>
+    const KEY='neon_users';
+    const getUsers=()=>{ try{return JSON.parse(localStorage.getItem(KEY))||[]}catch{return[]} };
+    const saveUsers=(l)=>localStorage.setItem(KEY,JSON.stringify(l));
+    const emailExists=(e)=>getUsers().some(u=>u.email.toLowerCase()===e.toLowerCase());
+
+    // Prefill desde home
+    const url = new URLSearchParams(location.search);
+    const pre = url.get('prefill') || localStorage.getItem('neon_temp_email');
+    if(pre) document.getElementById('email').value = pre;
+
+    // Fuerza de contraseña
+    const pass = document.getElementById('password');
+    const meter = document.getElementById('strength');
+    pass.addEventListener('input', ()=>{
+      let s=0;
+      if(pass.value.length>=8) s++;
+      if(/[A-Z]/.test(pass.value)) s++;
+      if(/[0-9]/.test(pass.value)) s++;
+      if(/[^A-Za-z0-9]/.test(pass.value)) s++;
+      meter.value=s;
+    });
+
+    function btnLoading(id,on){const b=document.getElementById(id);b.disabled=!!on;b.classList.toggle('loading',!!on)}
+    function toast(msg,type='info'){
+      const t=document.getElementById('toast'); if(!t) return alert(msg);
+      t.textContent=msg; t.className='toast '+type; t.style.opacity='1'; setTimeout(()=>t.style.opacity='0',2000);
+    }
+
+    document.getElementById('form-register').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name=e.target.name.value.trim();
+      const email=e.target.email.value.trim();
+      const password=e.target.password.value;
+      const confirm=e.target.confirm.value;
+      const terms=document.getElementById('terms').checked;
+
+      if(name.length<3) return toast('Escribe tu nombre completo');
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return toast('Correo inválido');
+      if(password.length<8) return toast('Mínimo 8 caracteres');
+      if(password!==confirm) return toast('Las contraseñas no coinciden');
+      if(!terms) return toast('Acepta términos y privacidad');
+      if(emailExists(email)) return toast('Ese correo ya está registrado');
+
+      const users=getUsers(); users.push({name,email,password}); saveUsers(users);
+      btnLoading('btn-register',true);
+      setTimeout(()=>{ btnLoading('btn-register',false); toast('¡Cuenta creada! Ahora inicia sesión','success'); setTimeout(()=>location.href='login.html',900); },700);
+    });
+  </script>
+</body>
+</html>

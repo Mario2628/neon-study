@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NeonStudy — Estudia 3x más rápido con IA</title>
+  <meta name="description" content="Resúmenes al instante, quizzes inteligentes y plan de estudio personalizado.">
+  <link rel="stylesheet" href="resources/css/estilos.css">
+</head>
+<body>
+  <!-- Topbar fija -->
+  <header class="topbar">
+    <div class="wrap bar">
+      <a href="#inicio" class="brand">NeonStudy</a>
+      <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu" onclick="toggleMenu()">☰</button>
+      <nav id="menu" class="menu" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#ventajas">Ventajas</a>
+        <a href="#convierte">Resultados</a>
+        <a href="#opiniones">Opiniones</a>
+        <a href="#agregar-comentario">Comentar</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HÉROE -->
+  <section id="inicio" class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1><span class="grad">Estudia 3× más rápido</span> con tu tutor de IA</h1>
+        <p class="lead">Resúmenes al instante, quizzes inteligentes y un plan que se adapta a ti. Maximiza tu tiempo, minimiza el estrés.</p>
+        <div class="cta" role="group" aria-label="Acciones">
+          <a class="btn primary" href="register.html">Regístrate</a>
+          <a class="btn ghost" href="login.html">Iniciar sesión</a>
+        </div>
+      </div>
+
+      <!-- Imagen héroe local con respaldo -->
+      <div class="hero-media press-glow">
+        <img src="resources/img/hero.jpg" alt="Estudiante usando una app de estudio"
+             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1400&auto=format&fit=crop';">
+      </div>
+    </div>
+    <div class="blob"></div><div class="blob b2"></div>
+  </section>
+
+  <main>
+    <!-- Ventajas -->
+    <section class="wrap section" id="ventajas" aria-labelledby="ventajas-t">
+      <h2 id="ventajas-t">¿Por qué NeonStudy?</h2>
+      <div class="cards" role="list">
+        <article class="card glow press-glow" role="listitem">
+          <div class="icon">⚡</div>
+          <h3>Resúmenes instantáneos</h3>
+          <p class="muted">Pega tus apuntes y obtén lo esencial en segundos, con conceptos clave y glosario.</p>
+        </article>
+        <article class="card glow press-glow" role="listitem">
+          <div class="icon">🧠</div>
+          <h3>Quizzes inteligentes</h3>
+          <p class="muted">Preguntas a tu medida que refuerzan lo que te falta con repetición espaciada.</p>
+        </article>
+        <article class="card glow press-glow" role="listitem">
+          <div class="icon">📅</div>
+          <h3>Plan personalizado</h3>
+          <p class="muted">Organiza tu semana con metas realistas, recordatorios y métricas de avance.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Conversión / Resultados -->
+    <section class="wrap section" id="convierte" aria-labelledby="convierte-t">
+      <div class="convert">
+        <div>
+          <h2 id="convierte-t">Convierte tu estudio en resultados</h2>
+          <p class="muted">Miles de estudiantes ya mejoran sus calificaciones con una rutina guiada por IA. Fácil y sin distracciones.</p>
+
+          <form id="registro" aria-label="Registro" onsubmit="return false;">
+            <label class="sr" for="email">Correo electrónico</label>
+            <input id="email" type="email" placeholder="tu@correo.com" required />
+            <button class="btn primary" onclick="quickRegister()">Crear cuenta</button>
+          </form>
+
+          <div class="policy-pills">
+            <a class="pill" href="#politica">Política de privacidad</a>
+            <a class="pill" href="#terminos">Términos</a>
+            <span class="pill success">Soporte 24/7</span>
+          </div>
+        </div>
+
+        <!-- Imagen del panel con marco y fallback -->
+        <picture class="panel-frame press-glow">
+          <img
+            src="resources/img/panel.jpg"
+            alt="Panel con progreso de estudio"
+            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1529336953121-a0ce24e8e6cc?q=80&w=1200&auto=format&fit=crop';">
+        </picture>
+      </div>
+    </section>
+
+    <!-- Opiniones -->
+    <section class="wrap section" id="opiniones" aria-labelledby="opiniones-t">
+      <h2 id="opiniones-t">Lo que dicen</h2>
+      <div class="grid-opiniones">
+        <blockquote class="card op glow press-glow">
+          <p class="quote">“Pasé de estudiar a última hora a tener un plan claro. Subí mi promedio en 3 semanas.”</p>
+          <div class="author"><div class="avatar">LP</div><div><strong>Lupita P.</strong><br><span class="muted">Ing. en Sistemas</span></div></div>
+        </blockquote>
+        <blockquote class="card op glow press-glow">
+          <p class="quote">“El quiz detecta mis áreas débiles solo. Es como tener un profe particular 24/7.”</p>
+          <div class="author"><div class="avatar">JR</div><div><strong>Jorge R.</strong><br><span class="muted">Arquitectura</span></div></div>
+        </blockquote>
+        <blockquote class="card op glow press-glow">
+          <p class="quote">“Lo uso en el bus desde el cel. En 15 minutos al día mantengo el ritmo sin estresarme.”</p>
+          <div class="author"><div class="avatar">AD</div><div><strong>Ana D.</strong><br><span class="muted">Psicología</span></div></div>
+        </blockquote>
+        <blockquote class="card op glow press-glow">
+          <p class="quote">“Me encantan los resúmenes con ejemplos. Para el parcial fue mi salvavidas.”</p>
+          <div class="author"><div class="avatar">CM</div><div><strong>Carlos M.</strong><br><span class="muted">Electrónica</span></div></div>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Agregar comentario -->
+    <section class="wrap section" id="agregar-comentario" aria-labelledby="agregar-t">
+      <h2 id="agregar-t">Agrega tu comentario</h2>
+      <form id="form-review" class="card press-glow" onsubmit="return false;">
+        <div class="grid2">
+          <label>Nombre
+            <input type="text" id="r-name" required minlength="3" placeholder="Tu nombre">
+          </label>
+          <label>Carrera
+            <input type="text" id="r-career" required placeholder="Tu carrera (p. ej., Ingeniería en Computación)">
+          </label>
+        </div>
+        <label>Comentario
+          <textarea id="r-text" rows="3" required minlength="15" placeholder="¿Qué te gustó y cómo te ayudó?"></textarea>
+        </label>
+        <fieldset class="stars">
+          <legend>Calificación</legend>
+          <input type="radio" name="rating" id="s5" value="5" required><label for="s5">★</label>
+          <input type="radio" name="rating" id="s4" value="4"><label for="s4">★</label>
+          <input type="radio" name="rating" id="s3" value="3"><label for="s3">★</label>
+          <input type="radio" name="rating" id="s2" value="2"><label for="s2">★</label>
+          <input type="radio" name="rating" id="s1" value="1"><label for="s1">★</label>
+        </fieldset>
+        <button class="btn primary" id="btn-add">Publicar comentario</button>
+      </form>
+    </section>
+
+    <!-- FAQ -->
+    <section class="wrap section" id="faq" aria-labelledby="faq-t">
+      <h2 id="faq-t">Preguntas frecuentes</h2>
+      <div class="card press-glow">
+        <details><summary>¿Es gratis?</summary><p class="muted">Sí, el plan básico es gratuito. El registro toma menos de 30 segundos.</p></details>
+        <details><summary>¿Necesito saber de IA?</summary><p class="muted">No. Pega tu material y NeonStudy hace el resto.</p></details>
+        <details><summary>¿Funciona en móvil?</summary><p class="muted">Diseño responsive y rápido, incluso con datos móviles.</p></details>
+      </div>
+    </section>
+
+    <!-- CTA secundaria y Contacto -->
+    <section class="wrap section" id="login" aria-labelledby="acceso">
+      <h2 id="acceso">¿Ya tienes cuenta?</h2>
+      <a class="btn ghost" href="login.html">Iniciar sesión</a>
+    </section>
+
+    <section class="wrap section" id="contacto" aria-labelledby="contacto-t">
+      <h2 id="contacto-t">Contacto</h2>
+      <div class="card press-glow">
+        <p class="muted">
+          ¿Dudas o sugerencias? Escríbeme a
+          <a href="mailto:68136leo@universidaddeleon.edu.mx">68136leo@universidaddeleon.edu.mx</a>.
+        </p>
+        <div class="profile">
+          <img class="pfp" src="https://dummyimage.com/72x72/0b1222/00ffc6&text=JM" alt="Foto de perfil">
+          <div>
+            <strong>Jorge Mario Alberto Méndez Vázquez</strong><br>
+            <span class="muted">Universidad de León — Estudiante 7° cuatrimestre, Ingeniería en Computación</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer" role="contentinfo">
+    <div>© <span id="y"></span> NeonStudy.</div>
+    <div id="politica" class="legal">Cuidamos tu privacidad. Tus datos se usan solo para crear tu cuenta y personalizar tu estudio.</div>
+  </footer>
+
+  <a class="sticky" href="register.html" aria-label="Ir a registro rápido">¡Regístrate gratis!</a>
+
+  <!-- JS inline -->
+  <script>
+    // Menú fixed
+    function toggleMenu(){
+      const m = document.getElementById('menu');
+      const b = document.querySelector('.hamburger');
+      const open = m.classList.toggle('open');
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    // Scroll suave + cerrar menú en móvil
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+        document.getElementById('menu').classList.remove('open');
+        document.querySelector('.hamburger').setAttribute('aria-expanded','false');
+      });
+    });
+
+    // Glow al presionar
+    document.addEventListener('click', (e)=>{
+      const el = e.target.closest('.press-glow');
+      if(!el) return;
+      el.classList.add('clicked');
+      setTimeout(()=>el.classList.remove('clicked'), 300);
+    });
+
+    // Registro rápido -> prefill
+    function quickRegister(){
+      const email = document.getElementById('email');
+      if(!email.checkValidity()){ email.reportValidity(); return; }
+      localStorage.setItem('neon_temp_email', email.value);
+      location.href = 'register.html?prefill=' + encodeURIComponent(email.value);
+    }
+
+    // Agregar comentario dinámico
+    const form = document.getElementById('form-review');
+    const grid = document.querySelector('.grid-opiniones');
+    if(form && grid){
+      form.querySelector('#btn-add').addEventListener('click', ()=>{
+        const name = document.getElementById('r-name').value.trim();
+        const career = document.getElementById('r-career').value.trim();
+        const text = document.getElementById('r-text').value.trim();
+        const rating = (new FormData(form).get('rating') || '').toString();
+        if(name.length<3 || career.length<3 || text.length<15 || !rating){
+          alert('Completa todos los campos y selecciona estrellas.'); return;
+        }
+        const initials = name.split(' ').map(p=>p[0]).slice(0,2).join('').toUpperCase();
+        const card = document.createElement('blockquote');
+        card.className = 'card op glow press-glow';
+        card.innerHTML = `
+          <p class="quote">“${text}”</p>
+          <div class="author">
+            <div class="avatar">${initials}</div>
+            <div><strong>${name}</strong><br><span class="muted">${career} • ${'★'.repeat(+rating)}</span></div>
+          </div>`;
+        grid.prepend(card);
+        form.reset();
+        location.hash = '#opiniones';
+      });
+    }
+
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
