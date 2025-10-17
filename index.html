@@ -18,36 +18,34 @@
         <a href="#ventajas">Ventajas</a>
         <a href="#convierte">Resultados</a>
         <a href="#opiniones">Opiniones</a>
-        <a href="#agregar-comentario">Comentar</a>
         <a href="#faq">FAQ</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
   </header>
 
-  <!-- HÉROE -->
-  <section id="inicio" class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <h1><span class="grad">Estudia 3× más rápido</span> con tu tutor de IA</h1>
-        <p class="lead">Resúmenes al instante, quizzes inteligentes y un plan que se adapta a ti. Maximiza tu tiempo, minimiza el estrés.</p>
-        <div class="cta" role="group" aria-label="Acciones">
-          <a class="btn primary" href="register.html">Regístrate</a>
-          <a class="btn ghost" href="login.html">Iniciar sesión</a>
-        </div>
-      </div>
+  <!-- HÉROE PANTALLA COMPLETA con TU imagen -->
+  <section id="inicio" class="hero-full">
+    <!-- imagen de fondo con fallback -->
+    <img class="hero-bg" src="resources/img/hero.jpg"
+         alt="Fondo principal"
+         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop';">
 
-      <!-- Imagen héroe local con respaldo -->
-      <div class="hero-media press-glow">
-        <img src="resources/img/hero.jpg" alt="Estudiante usando una app de estudio"
-             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1400&auto=format&fit=crop';">
+    <div class="wrap">
+      <h1 class="hero-title">
+        <span class="grad">Estudia 3× más rápido</span><br>
+        con tu tutor de IA
+      </h1>
+      <p class="hero-sub">Resúmenes al instante, quizzes inteligentes y un plan que se adapta a ti.</p>
+      <div class="cta" role="group" aria-label="Acciones">
+        <a class="btn primary" href="register.html">Regístrate</a>
+        <a class="btn ghost" href="login.html">Iniciar sesión</a>
       </div>
     </div>
-    <div class="blob"></div><div class="blob b2"></div>
   </section>
 
   <main>
-    <!-- Ventajas (segunda imagen con IMAGEN dentro) -->
+    <!-- Ventajas (tarjetas con imagen) -->
     <section class="wrap section" id="ventajas" aria-labelledby="ventajas-t">
       <h2 id="ventajas-t">¿Por qué NeonStudy?</h2>
       <div class="cards" role="list">
@@ -77,12 +75,12 @@
       </div>
     </section>
 
-    <!-- Conversión / Resultados (tercera imagen completa) -->
+    <!-- Conversión / Resultados -->
     <section class="wrap section" id="convierte" aria-labelledby="convierte-t">
       <div class="convert">
         <div>
           <h2 id="convierte-t">Convierte tu estudio en resultados</h2>
-          <p class="muted">Miles de estudiantes ya mejoran sus calificaciones con una rutina guiada por IA. Fácil y sin distracciones.</p>
+          <p class="muted">Miles de estudiantes ya mejoran sus calificaciones con una rutina guiada por IA.</p>
 
           <form id="registro" aria-label="Registro" onsubmit="return false;">
             <label class="sr" for="email">Correo electrónico</label>
@@ -97,7 +95,6 @@
           </div>
         </div>
 
-        <!-- imagen completa con fallback -->
         <picture class="panel-frame glow press-glow">
           <img
             src="resources/img/panel.jpg"
@@ -107,7 +104,7 @@
       </div>
     </section>
 
-    <!-- Opiniones (quinta imagen con FOTOS reales) -->
+    <!-- Opiniones -->
     <section class="wrap section" id="opiniones" aria-labelledby="opiniones-t">
       <h2 id="opiniones-t">Lo que dicen</h2>
       <div class="grid-opiniones">
@@ -118,7 +115,6 @@
             <div><strong>Lupita P.</strong><br><span class="muted">Ing. en Sistemas</span></div>
           </div>
         </blockquote>
-
         <blockquote class="card op glow press-glow">
           <p class="quote">“El quiz detecta mis áreas débiles solo. Es como tener un profe particular 24/7.”</p>
           <div class="author">
@@ -126,62 +122,43 @@
             <div><strong>Jorge R.</strong><br><span class="muted">Arquitectura</span></div>
           </div>
         </blockquote>
-
-        <blockquote class="card op glow press-glow">
-          <p class="quote">“Lo uso en el bus desde el cel. En 15 minutos al día mantengo el ritmo sin estresarme.”</p>
-          <div class="author">
-            <img class="avatar-img" src="https://randomuser.me/api/portraits/women/3.jpg" alt="Ana D.">
-            <div><strong>Ana D.</strong><br><span class="muted">Psicología</span></div>
-          </div>
-        </blockquote>
-
-        <blockquote class="card op glow press-glow">
-          <p class="quote">“Me encantan los resúmenes con ejemplos. Para el parcial fue mi salvavidas.”</p>
-          <div class="author">
-            <img class="avatar-img" src="https://randomuser.me/api/portraits/men/33.jpg" alt="Carlos M.">
-            <div><strong>Carlos M.</strong><br><span class="muted">Electrónica</span></div>
-          </div>
-        </blockquote>
       </div>
     </section>
 
-    <!-- Agregar comentario -->
-    <section class="wrap section" id="agregar-comentario" aria-labelledby="agregar-t">
-      <h2 id="agregar-t">Agrega tu comentario</h2>
-      <form id="form-review" class="card press-glow" onsubmit="return false;">
-        <div class="grid2">
-          <label>Nombre
-            <input type="text" id="r-name" required minlength="3" placeholder="Tu nombre">
-          </label>
-          <label>Carrera
-            <input type="text" id="r-career" required placeholder="Tu carrera (p. ej., Ingeniería en Computación)">
-          </label>
-        </div>
-        <label>Comentario
-          <textarea id="r-text" rows="3" required minlength="15" placeholder="¿Qué te gustó y cómo te ayudó?"></textarea>
-        </label>
-        <fieldset class="stars">
-          <legend>Calificación</legend>
-          <input type="radio" name="rating" id="s5" value="5" required><label for="s5">★</label>
-          <input type="radio" name="rating" id="s4" value="4"><label for="s4">★</label>
-          <input type="radio" name="rating" id="s3" value="3"><label for="s3">★</label>
-          <input type="radio" name="rating" id="s2" value="2"><label for="s2">★</label>
-          <input type="radio" name="rating" id="s1" value="1"><label for="s1">★</label>
-        </fieldset>
-        <button class="btn primary" id="btn-add">Publicar comentario</button>
-      </form>
-    </section>
-
-    <!-- FAQ (completa con más preguntas) -->
+    <!-- FAQ en rectángulos con glow -->
     <section class="wrap section" id="faq" aria-labelledby="faq-t">
       <h2 id="faq-t">Preguntas frecuentes</h2>
-      <div class="card press-glow">
-        <details open><summary>¿Es gratis?</summary><p class="muted">Sí, el plan básico es gratuito. El registro toma menos de 30 segundos.</p></details>
-        <details><summary>¿Necesito saber de IA?</summary><p class="muted">No. Pegas tu material y NeonStudy hace el resto.</p></details>
-        <details><summary>¿Funciona en móvil?</summary><p class="muted">Diseño responsive y rápido, incluso con datos móviles.</p></details>
-        <details><summary>¿Puedo exportar mis resúmenes?</summary><p class="muted">Sí, puedes descargar en PDF o copiar a tu editor favorito.</p></details>
-        <details><summary>¿Mis datos están seguros?</summary><p class="muted">Usamos cifrado y buenas prácticas. Tú decides qué compartes.</p></details>
-        <details><summary>¿Hay plan premium?</summary><p class="muted">Sí, con estadísticas avanzadas y más intentos de quizzes.</p></details>
+
+      <div class="faq-wrap">
+        <details class="faq-card glow press-glow" open>
+          <summary>¿Es gratis?</summary>
+          <p>Sí, el plan básico es gratuito. El registro toma menos de 30 segundos.</p>
+        </details>
+
+        <details class="faq-card glow press-glow" open>
+          <summary>¿Necesito saber de IA?</summary>
+          <p>No. Pega tu material y NeonStudy hace el resto.</p>
+        </details>
+
+        <details class="faq-card glow press-glow" open>
+          <summary>¿Funciona en móvil?</summary>
+          <p>Diseño responsive y rápido, incluso con datos móviles.</p>
+        </details>
+
+        <details class="faq-card glow press-glow">
+          <summary>¿Puedo exportar mis resúmenes?</summary>
+          <p>Sí, puedes descargar en PDF o copiar a tu editor favorito.</p>
+        </details>
+
+        <details class="faq-card glow press-glow">
+          <summary>¿Mis datos están seguros?</summary>
+          <p>Usamos cifrado y buenas prácticas. Tú decides qué compartes.</p>
+        </details>
+
+        <details class="faq-card glow press-glow">
+          <summary>¿Hay plan premium?</summary>
+          <p>Sí, con estadísticas avanzadas y más intentos de quizzes.</p>
+        </details>
       </div>
     </section>
 
@@ -248,36 +225,9 @@
     // Registro rápido -> prefill
     function quickRegister(){
       const email = document.getElementById('email');
-      if(!email.checkValidity()){ email.reportValidity(); return; }
+      if(!email || !email.checkValidity()){ if(email) email.reportValidity(); return; }
       localStorage.setItem('neon_temp_email', email.value);
       location.href = 'register.html?prefill=' + encodeURIComponent(email.value);
-    }
-
-    // Agregar comentario dinámico
-    const form = document.getElementById('form-review');
-    const grid = document.querySelector('.grid-opiniones');
-    if(form && grid){
-      form.querySelector('#btn-add').addEventListener('click', ()=>{
-        const name = document.getElementById('r-name').value.trim();
-        const career = document.getElementById('r-career').value.trim();
-        const text = document.getElementById('r-text').value.trim();
-        const rating = (new FormData(form).get('rating') || '').toString();
-        if(name.length<3 || career.length<3 || text.length<15 || !rating){
-          alert('Completa todos los campos y selecciona estrellas.'); return;
-        }
-        const initials = name.split(' ').map(p=>p[0]).slice(0,2).join('').toUpperCase();
-        const card = document.createElement('blockquote');
-        card.className = 'card op glow press-glow';
-        card.innerHTML = `
-          <p class="quote">“${text}”</p>
-          <div class="author">
-            <div class="avatar">${initials}</div>
-            <div><strong>${name}</strong><br><span class="muted">${career} • ${'★'.repeat(+rating)}</span></div>
-          </div>`;
-        grid.prepend(card);
-        form.reset();
-        location.hash = '#opiniones';
-      });
     }
 
     document.getElementById('y').textContent = new Date().getFullYear();
